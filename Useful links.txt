@@ -1,0 +1,5 @@
+﻿Getting postgres stuff done.
+https://www.endpointdev.com/blog/2021/07/dotnet-5-web-api/
+Heroku 
+https://dev.to/alrobilliard/deploying-net-core-to-heroku-1lfe
+https://medium.com/swlh/deploy-your-net-core-3-1-application-to-heroku-with-docker-eb8c96948d32

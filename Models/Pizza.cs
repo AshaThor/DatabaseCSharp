@@ -14,8 +14,8 @@ namespace PostgresConnect.Models
         public string Name { get; set; }
         public bool Vegitarian { get; set; }
 
-        //[JsonConverter(typeof(StringEnumConverter))]
-        public int PizzaSize { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Size PizzaSize { get; set; }
         public enum Size
         { 
             small,
