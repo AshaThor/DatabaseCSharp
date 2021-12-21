@@ -1,5 +1,11 @@
 ﻿Getting postgres stuff done.
 https://www.endpointdev.com/blog/2021/07/dotnet-5-web-api/
+https://daniellethurow.com/blog/2020/7/16/connecting-to-heroku-postgresql-with-net-core
+https://www.npgsql.org/doc/connection-string-parameters.html
 Heroku 
 https://dev.to/alrobilliard/deploying-net-core-to-heroku-1lfe
 https://medium.com/swlh/deploy-your-net-core-3-1-application-to-heroku-with-docker-eb8c96948d32
+Env Vars
+https://enlabsoftware.com/development/dotnet-core-environment-how-config-examples.html
+AWS
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.rds.html
