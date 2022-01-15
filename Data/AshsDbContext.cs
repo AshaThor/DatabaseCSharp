@@ -14,17 +14,13 @@ namespace PostgresConnect.Data
         {
 
         }
-
-        public DbSet<Ash> Ashs { get; set; }
-        public DbSet<Pizza> Pizzas { get; set; }
-        public DbSet<ToDoTask> ToDoTasks { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Board> Board { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Ash>().ToTable("Ash");
-            //Add stuff here
-            modelBuilder.Entity<Pizza>().ToTable("Pizza");
-            modelBuilder.Entity<ToDoTask>().ToTable("ToDoTask");
+            modelBuilder.Entity<Question>().ToTable("question");
+            modelBuilder.Entity<Board>().ToTable("board");
             base.OnModelCreating(modelBuilder);
         }
     }

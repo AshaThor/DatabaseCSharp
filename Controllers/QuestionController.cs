@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -13,9 +14,9 @@ namespace PostgresConnect.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ToDoTaskController : ControllerBase
+    public class QuestionController : ControllerBase
     {
-        public ToDoTaskController(AshsDbContext ashsDbContext)
+        public QuestionController(AshsDbContext ashsDbContext)
         {
             AshsDbContext = ashsDbContext;
         }
@@ -23,27 +24,25 @@ namespace PostgresConnect.Controllers
         public AshsDbContext AshsDbContext { get; }
 
         [HttpGet]
-        public async Task<ActionResult<ToDoTask>> Get()
+        public async Task<ActionResult<List<Question>>> Get()
         {
-            ToDoTask toDoTask = await AshsDbContext.ToDoTasks.FirstOrDefaultAsync();
-            if (toDoTask is null)
+            List<Question> questions = await AshsDbContext.Question.ToListAsync();
+            if (questions is null)
                 return NotFound();
-            return toDoTask;
+            return questions;
         }
 
-        //TODO get this working
-        /*[HttpGet("{id}")]
-        public async Task<ActionResult<ToDoTask>> Get(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Question>> Get(int id)
         {
-            //
-            //ToDoTask toDoTask = await AshsDbContext.ToDoTasks.Where(t => t.id == id).Single();
-            if (toDoTask is null)
+            Question question = await AshsDbContext.Question.SingleOrDefaultAsync(t => t.id == id);
+            if (question is null)
                 return NotFound();
-            return toDoTask;
-        }*/
+            return question;
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Post(ToDoTask model)
+        public async Task<IActionResult> Post(Question model)
         {
             if (model is null)
                 return NotFound();
